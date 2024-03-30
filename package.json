@@ -1,14 +1,16 @@
 {
-  "name": "yarn-berry-template",
+  "name": "spotify-utils",
   "version": "1.0.0",
   "exports": "./src/index.ts",
-  "types": "./src/index.d.ts",
   "license": "MIT",
   "type": "module",
   "packageManager": "yarn@4.1.1",
   "scripts": {
-    "start": "yarn node --import tsx/esm ./start.ts",
+    "start": "yarn node --env-file ./.env --import tsx/esm ./start.ts",
     "od": "yarn outdated"
+  },
+  "dependencies": {
+    "@spotify/web-api-ts-sdk": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
@@ -17,6 +19,6 @@
     "typescript": "^5.4.3"
   },
   "engines": {
-    "node": ">=18 || >=20"
+    "node": ">=20.6.0"
   }
 }

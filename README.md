@@ -1,10 +1,11 @@
 # Install
-`yarn add yarn-berry-template`
+`yarn add spotify-utils`
 
 
-# Example
-```ts
-import { <FUNCTION> } from 'yarn-berry-template'
-
-await <FUNCTION>()
+## .env
+```
+SPOTIFY_CLIENT_ID
+SPOTIFY_CLIENT_SECRET
+SPOTIFY_PLAYLIST_ID
+SPOTIFY_USER_ID
 ```

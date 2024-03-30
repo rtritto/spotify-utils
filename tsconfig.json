@@ -17,10 +17,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
-    "types": [
-      "src/index.d.ts"
-    ]
+    "target": "ESNext"
   },
   "include": [
     "src/**/*"

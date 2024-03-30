@@ -18,6 +18,7 @@ import {
 
 const uris = getUrisFromFiles('playlist-All-20240330T121626.json')
 console.log('uris: ', uris);
+// Copy to Windows Clipboard
 const proc = spawn('clip')
 proc.stdin.write(JSON.stringify(uris))
 proc.stdin.end()

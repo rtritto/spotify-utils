@@ -12,7 +12,7 @@ const playlist = await getPlaylist({
   playlist_id:
     'XXXXXXXXXXXXXXXXXXXXXX'  // All
 })
-console.log('getPlaylist: OK')
+console.log('getPlaylist:', playlist.name)
 //#endregion
 
 //#region createPlaylist

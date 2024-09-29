@@ -42,7 +42,7 @@ export const getPlaylist = async ({
       .split(/:|-/)   // remove : and -
       .join('')
     // const playlistFilename = `playlist-${playlist_id}-${ts}.json`
-    const playlistFilename = `playlist-${playlist.name}-${ts}.json`
+    const playlistFilename = `${ts}-${playlist.name}-.json`
     const filepath = getOutputPath(playlistFilename)
     fs.writeFileSync(filepath, JSON.stringify(playlist))
   }

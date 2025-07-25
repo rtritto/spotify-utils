@@ -5,15 +5,18 @@ import {
   createPlaylist,
   addItemsToPlaylist,
   getUrisFromFiles
-} from './src/index.ts'
+} from './src/index'
 
-//#region getPlaylist
-const playlist = await getPlaylist({
-  playlist_id:
-    'XXXXXXXXXXXXXXXXXXXXXX'  // All
-})
-console.log('getPlaylist:', playlist.name)
-//#endregion
+const getPlaylists = async (ids: string[]) => {
+  for (const id of ids) {
+    const playlist = await getPlaylist({ playlist_id: id })
+    console.log('getPlaylist:', playlist.name)
+  }
+}
+
+getPlaylists([
+  'XXXXXXXXXXXXXXXXXXXXXX'  // All
+])
 
 //#region createPlaylist
 // const { id } = await createPlaylist({ name: 'Phonk 2' })

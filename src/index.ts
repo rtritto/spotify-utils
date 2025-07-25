@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { getInputPath, getOutputPath } from '@/fileUtils'
+import { getInputPath, getOutputPath } from './fileUtils'
 
 const {
   SPOTIFY_CLIENT_ID,

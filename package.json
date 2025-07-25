@@ -4,7 +4,7 @@
   "exports": "./src/index.ts",
   "license": "MIT",
   "type": "module",
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.9.2",
   "scripts": {
     "start": "yarn node --env-file ./.env --import tsx/esm ./start.ts",
     "od": "yarn outdated"
@@ -13,10 +13,10 @@
     "@spotify/web-api-ts-sdk": "^1.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9",
-    "@yarnpkg/sdks": "^3.2.1",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "@types/node": "^24.1.0",
+    "@yarnpkg/sdks": "^3.2.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=20.6.0"

@@ -6,6 +6,7 @@ import {
   addItemsToPlaylist,
   getUrisFromFiles
 } from './src/index'
+import { compressFolderToZip, getCurrentDateString, getOutputPath } from './src/folderUtils'
 
 const getPlaylists = async (ids: string[]) => {
   for (const id of ids) {
@@ -14,9 +15,11 @@ const getPlaylists = async (ids: string[]) => {
   }
 }
 
-getPlaylists([
+await getPlaylists([
   'XXXXXXXXXXXXXXXXXXXXXX'  // All
 ])
+
+compressFolderToZip(getOutputPath(getCurrentDateString()))
 
 //#region createPlaylist
 // const { id } = await createPlaylist({ name: 'Phonk 2' })

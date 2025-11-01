@@ -3,7 +3,7 @@ import path from 'node:path'
 import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { createFolder, getInputPath, getOutputPath } from './folderUtils'
+import { createFolder, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
 
 const {
   SPOTIFY_CLIENT_ID,
@@ -40,16 +40,11 @@ export const getPlaylist = async ({
   const playlist = await api.playlists.getPlaylist(playlist_id)
   if (save) {
     // Backup the playlist
-    const ts = new Date()   // timestamp
-      .toISOString()
-      .slice(0, -5)   // remove millis
-      .split(/:|-/)   // remove : and -
-      .join('')
-    const YYYYMMDD = ts.slice(0, 8)
-    const YYYYMMDD_FolderPath = getOutputPath(YYYYMMDD)
+    const currentDateComplete = getCurrentDateString(true)
+    const YYYYMMDD_FolderPath = getOutputPath(currentDateComplete.slice(0, 8))
     createFolder(YYYYMMDD_FolderPath)
     // const playlistFilename = `playlist-${playlist_id}-${ts}.json`
-    const playlistFilename = `${ts}-${playlist.name}.json`
+    const playlistFilename = `${currentDateComplete}-${playlist.name}.json`
     const filepath = path.join(YYYYMMDD_FolderPath, playlistFilename)
     fs.writeFileSync(filepath, JSON.stringify(playlist))
   }

@@ -29,8 +29,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
+          ["@types/adm-zip", "npm:0.5.7"],\
           ["@types/node", "npm:24.9.2"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
+          ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\
           ["tsx", "npm:4.20.6"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
@@ -408,6 +410,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/adm-zip", [\
+      ["npm:0.5.7", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-adm-zip-npm-0.5.7-b19d96a568-10c0.zip/node_modules/@types/adm-zip/",\
+        "packageDependencies": [\
+          ["@types/adm-zip", "npm:0.5.7"],\
+          ["@types/node", "npm:24.9.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/cacheable-request", [\
       ["npm:6.0.3", {\
         "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-cacheable-request-npm-6.0.3-770619032a-10c0.zip/node_modules/@types/cacheable-request/",\
@@ -606,6 +618,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/abbrev-npm-3.0.1-a34d600e50-10c0.zip/node_modules/abbrev/",\
         "packageDependencies": [\
           ["abbrev", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["adm-zip", [\
+      ["npm:0.5.16", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/adm-zip-npm-0.5.16-4556fea098-10c0.zip/node_modules/adm-zip/",\
+        "packageDependencies": [\
+          ["adm-zip", "npm:0.5.16"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1954,8 +1975,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
+          ["@types/adm-zip", "npm:0.5.7"],\
           ["@types/node", "npm:24.9.2"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
+          ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\
           ["tsx", "npm:4.20.6"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\

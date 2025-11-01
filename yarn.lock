@@ -298,6 +298,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/adm-zip@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@types/adm-zip@npm:0.5.7"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/6ba62bd8f4a6e7ffdad08d951c65c4f69161c2b96cc34249dcf3c448dca85749409407b297472d5c66b711325de89012e8607b74c87d99ec23e9b7a44b6c71c6
+  languageName: node
+  linkType: hard
+
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.3
   resolution: "@types/cacheable-request@npm:6.0.3"
@@ -471,6 +480,13 @@ __metadata:
   version: 3.0.1
   resolution: "abbrev@npm:3.0.1"
   checksum: 10c0/21ba8f574ea57a3106d6d35623f2c4a9111d9ee3e9a5be47baed46ec2457d2eac46e07a5c4a60186f88cb98abbe3e24f2d4cca70bc2b12f1692523e2209a9ccf
+  languageName: node
+  linkType: hard
+
+"adm-zip@npm:^0.5.16":
+  version: 0.5.16
+  resolution: "adm-zip@npm:0.5.16"
+  checksum: 10c0/6f10119d4570c7ba76dcf428abb8d3f69e63f92e51f700a542b43d4c0130373dd2ddfc8f85059f12d4a843703a90c3970cfd17876844b4f3f48bf042bfa6b49f
   languageName: node
   linkType: hard
 
@@ -1706,10 +1722,17 @@ __metadata:
   resolution: "spotify-utils@workspace:."
   dependencies:
     "@spotify/web-api-ts-sdk": "npm:^1.2.0"
+    "@types/adm-zip": "npm:^0.5.7"
     "@types/node": "npm:^24.9.2"
     "@yarnpkg/sdks": "npm:^3.2.3"
+    adm-zip: "npm:^0.5.16"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
+  peerDependencies:
+    adm-zip: "*"
+  peerDependenciesMeta:
+    adm-zip:
+      optional: true
   languageName: unknown
   linkType: soft
 

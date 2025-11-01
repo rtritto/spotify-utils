@@ -37,7 +37,7 @@ export const getPlaylist = async ({
 }: GetPlaylistParams = {}): Promise<Playlist<Track>> => {
   _setApi()
   const playlist = await api.playlists.getPlaylist(playlist_id)
-  if (save === true) {
+  if (save) {
     // Backup the playlist
     const ts = new Date()   // timestamp
       .toISOString()

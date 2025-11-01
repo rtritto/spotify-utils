@@ -29,11 +29,11 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
-          ["@types/node", "npm:24.1.0"],\
-          ["@yarnpkg/sdks", "npm:3.2.2"],\
+          ["@types/node", "npm:24.9.2"],\
+          ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["spotify-utils", "workspace:."],\
-          ["tsx", "npm:4.20.3"],\
-          ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"]\
+          ["tsx", "npm:4.20.6"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -439,11 +439,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:24.1.0", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-24.1.0-b409136c60-10c0.zip/node_modules/@types/node/",\
+      ["npm:24.9.2", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-24.9.2-3939bef0b4-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:24.1.0"],\
-          ["undici-types", "npm:7.8.0"]\
+          ["@types/node", "npm:24.9.2"],\
+          ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -477,15 +477,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@yarnpkg/core", [\
-      ["npm:4.4.2", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-core-npm-4.4.2-acfa5f2e9a-10c0.zip/node_modules/@yarnpkg/core/",\
+      ["npm:4.4.4", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-core-npm-4.4.4-0809d52f42-10c0.zip/node_modules/@yarnpkg/core/",\
         "packageDependencies": [\
           ["@arcanis/slice-ansi", "npm:1.1.1"],\
           ["@types/semver", "npm:7.5.8"],\
           ["@types/treeify", "npm:1.0.3"],\
-          ["@yarnpkg/core", "npm:4.4.2"],\
-          ["@yarnpkg/fslib", "npm:3.1.2"],\
-          ["@yarnpkg/libzip", "virtual:acfa5f2e9ae5163bc0ed3e43799c912b0e8c2caa485862062844ee151754dfa1b0e299c099d7108a79a35266e75681eb699d2c1b9c4f7ed6ca6dd9a3779095fd#npm:3.2.1"],\
+          ["@yarnpkg/core", "npm:4.4.4"],\
+          ["@yarnpkg/fslib", "npm:3.1.3"],\
+          ["@yarnpkg/libzip", "virtual:0809d52f42b767aeb0e8e94fda7d530410fd3e4b1ad0f9ea3481456523951a54cb98082ff2184b1353370c996de518be5d78badf43b7b60dfd84f47e12830ed2#npm:3.2.2"],\
           ["@yarnpkg/parsers", "npm:3.0.3"],\
           ["@yarnpkg/shell", "npm:4.1.3"],\
           ["camelcase", "npm:5.3.1"],\
@@ -495,10 +495,10 @@ const RAW_RUNTIME_STATE =
           ["cross-spawn", "npm:7.0.6"],\
           ["diff", "npm:5.2.0"],\
           ["dotenv", "npm:16.4.5"],\
+          ["es-toolkit", "npm:1.41.0"],\
           ["fast-glob", "npm:3.3.2"],\
           ["got", "npm:11.8.6"],\
           ["hpagent", "npm:1.2.0"],\
-          ["lodash", "npm:4.17.21"],\
           ["micromatch", "npm:4.0.5"],\
           ["p-limit", "npm:2.3.0"],\
           ["semver", "npm:7.6.0"],\
@@ -519,23 +519,31 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.6.2"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:3.1.3", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-fslib-npm-3.1.3-eb329e0e16-10c0.zip/node_modules/@yarnpkg/fslib/",\
+        "packageDependencies": [\
+          ["@yarnpkg/fslib", "npm:3.1.3"],\
+          ["tslib", "npm:2.6.2"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@yarnpkg/libzip", [\
-      ["npm:3.2.1", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-libzip-npm-3.2.1-5bcfe1c424-10c0.zip/node_modules/@yarnpkg/libzip/",\
+      ["npm:3.2.2", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-libzip-npm-3.2.2-d780966da7-10c0.zip/node_modules/@yarnpkg/libzip/",\
         "packageDependencies": [\
-          ["@yarnpkg/libzip", "npm:3.2.1"]\
+          ["@yarnpkg/libzip", "npm:3.2.2"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:acfa5f2e9ae5163bc0ed3e43799c912b0e8c2caa485862062844ee151754dfa1b0e299c099d7108a79a35266e75681eb699d2c1b9c4f7ed6ca6dd9a3779095fd#npm:3.2.1", {\
-        "packageLocation": "./.yarn/__virtual__/@yarnpkg-libzip-virtual-34332fcb41/4/Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-libzip-npm-3.2.1-5bcfe1c424-10c0.zip/node_modules/@yarnpkg/libzip/",\
+      ["virtual:0809d52f42b767aeb0e8e94fda7d530410fd3e4b1ad0f9ea3481456523951a54cb98082ff2184b1353370c996de518be5d78badf43b7b60dfd84f47e12830ed2#npm:3.2.2", {\
+        "packageLocation": "./.yarn/__virtual__/@yarnpkg-libzip-virtual-61ceb74f92/4/Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-libzip-npm-3.2.2-d780966da7-10c0.zip/node_modules/@yarnpkg/libzip/",\
         "packageDependencies": [\
           ["@types/emscripten", "npm:1.39.10"],\
           ["@types/yarnpkg__fslib", null],\
-          ["@yarnpkg/fslib", "npm:3.1.2"],\
-          ["@yarnpkg/libzip", "virtual:acfa5f2e9ae5163bc0ed3e43799c912b0e8c2caa485862062844ee151754dfa1b0e299c099d7108a79a35266e75681eb699d2c1b9c4f7ed6ca6dd9a3779095fd#npm:3.2.1"],\
+          ["@yarnpkg/fslib", "npm:3.1.3"],\
+          ["@yarnpkg/libzip", "virtual:0809d52f42b767aeb0e8e94fda7d530410fd3e4b1ad0f9ea3481456523951a54cb98082ff2184b1353370c996de518be5d78badf43b7b60dfd84f47e12830ed2#npm:3.2.2"],\
           ["tslib", "npm:2.6.2"]\
         ],\
         "packagePeers": [\
@@ -557,17 +565,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@yarnpkg/sdks", [\
-      ["npm:3.2.2", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-sdks-npm-3.2.2-2fb9d03533-10c0.zip/node_modules/@yarnpkg/sdks/",\
+      ["npm:3.2.3", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@yarnpkg-sdks-npm-3.2.3-21c0163f0a-10c0.zip/node_modules/@yarnpkg/sdks/",\
         "packageDependencies": [\
-          ["@yarnpkg/core", "npm:4.4.2"],\
+          ["@yarnpkg/core", "npm:4.4.4"],\
           ["@yarnpkg/fslib", "npm:3.1.2"],\
           ["@yarnpkg/parsers", "npm:3.0.3"],\
-          ["@yarnpkg/sdks", "npm:3.2.2"],\
+          ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["chalk", "npm:4.1.2"],\
           ["clipanion", "virtual:b80567f1f726ad28b5f69c2f4d583115762754ed5e643c8ffc700d555267034c078163b8acf27ac9e54b95573c3afeb591dde0dc0755beb1e2c159d60551a612#npm:4.0.0-rc.3"],\
           ["comment-json", "npm:2.4.2"],\
-          ["lodash", "npm:4.17.21"],\
+          ["es-toolkit", "npm:1.41.0"],\
           ["tslib", "npm:2.6.2"]\
         ],\
         "linkType": "HARD"\
@@ -1002,6 +1010,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["es-toolkit", [\
+      ["npm:1.41.0", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/es-toolkit-npm-1.41.0-11db103f64-10c0.zip/node_modules/es-toolkit/",\
+        "packageDependencies": [\
+          ["es-toolkit", "npm:1.41.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["esbuild", [\
       ["npm:0.25.0", {\
         "packageLocation": "./.yarn/unplugged/esbuild-npm-0.25.0-239cf019a2/node_modules/esbuild/",\
@@ -1425,15 +1442,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["json-buffer", "npm:3.0.1"],\
           ["keyv", "npm:4.5.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["lodash", [\
-      ["npm:4.17.21", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/lodash-npm-4.17.21-6382451519-10c0.zip/node_modules/lodash/",\
-        "packageDependencies": [\
-          ["lodash", "npm:4.17.21"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1958,11 +1966,11 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
-          ["@types/node", "npm:24.1.0"],\
-          ["@yarnpkg/sdks", "npm:3.2.2"],\
+          ["@types/node", "npm:24.9.2"],\
+          ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["spotify-utils", "workspace:."],\
-          ["tsx", "npm:4.20.3"],\
-          ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"]\
+          ["tsx", "npm:4.20.6"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -2096,13 +2104,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["tsx", [\
-      ["npm:4.20.3", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/tsx-npm-4.20.3-7de67a623f-10c0.zip/node_modules/tsx/",\
+      ["npm:4.20.6", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/tsx-npm-4.20.6-78231068b5-10c0.zip/node_modules/tsx/",\
         "packageDependencies": [\
           ["esbuild", "npm:0.25.0"],\
           ["fsevents", "patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"],\
           ["get-tsconfig", "npm:4.8.1"],\
-          ["tsx", "npm:4.20.3"]\
+          ["tsx", "npm:4.20.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2117,10 +2125,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript", [\
-      ["patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/typescript-patch-f64146f279-10c0.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/typescript-patch-6fda4d02cf-10c0.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2133,10 +2141,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:7.8.0", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/undici-types-npm-7.8.0-86f3e2d23e-10c0.zip/node_modules/undici-types/",\
+      ["npm:7.16.0", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/undici-types-npm-7.16.0-0e23b08124-10c0.zip/node_modules/undici-types/",\
         "packageDependencies": [\
-          ["undici-types", "npm:7.8.0"]\
+          ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7530,7 +7538,8 @@ class ZipFS extends BasePortableFakeFS {
         const entries = Array.from(directoryListing, (name) => {
           return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
             name,
-            path: PortablePath.dot
+            path: PortablePath.dot,
+            parentPath: PortablePath.dot
           });
         });
         for (const entry of entries) {
@@ -7541,7 +7550,8 @@ class ZipFS extends BasePortableFakeFS {
           for (const child of subListing) {
             entries.push(Object.assign(this.statImpl(`lstat`, ppath.join(p, subPath, child)), {
               name: child,
-              path: subPath
+              path: subPath,
+              parentPath: subPath
             }));
           }
         }
@@ -7562,7 +7572,8 @@ class ZipFS extends BasePortableFakeFS {
       return Array.from(directoryListing, (name) => {
         return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
           name,
-          path: void 0
+          path: void 0,
+          parentPath: void 0
         });
       });
     } else {

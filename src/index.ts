@@ -1,8 +1,9 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { getInputPath, getOutputPath } from './fileUtils'
+import { createFolder, getInputPath, getOutputPath } from './fileUtils'
 
 const {
   SPOTIFY_CLIENT_ID,
@@ -44,9 +45,12 @@ export const getPlaylist = async ({
       .slice(0, -5)   // remove millis
       .split(/:|-/)   // remove : and -
       .join('')
+    const YYYYMMDD = ts.slice(0, 8)
+    const YYYYMMDD_FolderPath = getOutputPath(YYYYMMDD)
+    createFolder(YYYYMMDD_FolderPath)
     // const playlistFilename = `playlist-${playlist_id}-${ts}.json`
     const playlistFilename = `${ts}-${playlist.name}.json`
-    const filepath = getOutputPath(playlistFilename)
+    const filepath = path.join(YYYYMMDD_FolderPath, playlistFilename)
     fs.writeFileSync(filepath, JSON.stringify(playlist))
   }
   return playlist

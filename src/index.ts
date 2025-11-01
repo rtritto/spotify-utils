@@ -3,7 +3,7 @@ import path from 'node:path'
 import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { createFolder, getInputPath, getOutputPath } from './fileUtils'
+import { createFolder, getInputPath, getOutputPath } from './folderUtils'
 
 const {
   SPOTIFY_CLIENT_ID,

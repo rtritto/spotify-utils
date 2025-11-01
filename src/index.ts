@@ -14,6 +14,9 @@ const {
 let api: SpotifyApi
 
 const _setApi = () => {
+  if (api) {
+    return
+  }
   api = SpotifyApi.withClientCredentials(
     SPOTIFY_CLIENT_ID!,
     SPOTIFY_CLIENT_SECRET!

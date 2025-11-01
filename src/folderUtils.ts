@@ -1,8 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const INPUT_FOLDER = './input'
-const OUTPUT_FOLDER = './output'
+const { INPUT_FOLDER = './input', OUTPUT_FOLDER = './output' } = process.env
 
 export const createFolder = (folderPath: string): void => {
   if (!fs.existsSync(folderPath)) {

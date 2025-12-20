@@ -30,7 +30,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
           ["@types/adm-zip", "npm:0.5.7"],\
-          ["@types/node", "npm:24.9.2"],\
+          ["@types/node", "npm:25.0.3"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\
@@ -466,6 +466,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-24.9.2-3939bef0b4-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:24.9.2"],\
+          ["undici-types", "npm:7.16.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:25.0.3", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-25.0.3-b5e8cb0cae-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:25.0.3"],\
           ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
@@ -1976,7 +1984,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
           ["@types/adm-zip", "npm:0.5.7"],\
-          ["@types/node", "npm:24.9.2"],\
+          ["@types/node", "npm:25.0.3"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\

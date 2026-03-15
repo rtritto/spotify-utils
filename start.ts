@@ -2,9 +2,9 @@ import { spawn } from 'node:child_process'
 
 import {
   getPlaylist,
-  createPlaylist,
-  addItemsToPlaylist,
-  getUrisFromFiles
+  // createPlaylist,
+  // addItemsToPlaylist,
+  // getUrisFromFiles
 } from './src/index'
 import { compressFolderToZip, getCurrentDateString, getOutputPath } from './src/folderUtils'
 

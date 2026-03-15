@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { SpotifyApi } from '@spotify/web-api-ts-sdk'
+// import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
 import { createFolder, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
@@ -9,19 +9,33 @@ const {
   SPOTIFY_CLIENT_ID,
   SPOTIFY_CLIENT_SECRET,
   SPOTIFY_PLAYLIST_ID,
-  SPOTIFY_USER_ID
+  // SPOTIFY_USER_ID
 } = process.env
 
-let api: SpotifyApi
+// let api: SpotifyApi
+let access_token: string
 
-const _setApi = () => {
-  if (api) {
-    return
-  }
-  api = SpotifyApi.withClientCredentials(
-    SPOTIFY_CLIENT_ID!,
-    SPOTIFY_CLIENT_SECRET!
-  )
+const _set = async () => {
+  // if (api) {
+  //   return
+  // }
+  // api = SpotifyApi.withClientCredentials(
+  //   SPOTIFY_CLIENT_ID!,
+  //   SPOTIFY_CLIENT_SECRET!
+  // )
+
+  const basicAuth = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
+
+  ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': `Basic ${basicAuth}`
+    },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials'
+    })
+  }).then(res => res.json()))
 }
 
 type GetPlaylistParams = {
@@ -36,8 +50,14 @@ export const getPlaylist = async ({
   save = true,
   playlist_id = SPOTIFY_PLAYLIST_ID!
 }: GetPlaylistParams = {}): Promise<Playlist<Track>> => {
-  _setApi()
-  const playlist = await api.playlists.getPlaylist(playlist_id)
+  await _set()
+  const playlist = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  }).then((response) => response.json())
+  // OR
+  // const playlist = await api.playlists.getPlaylist(playlist_id)
   if (save) {
     // Backup the playlist
     const currentDateComplete = getCurrentDateString(true)
@@ -61,14 +81,26 @@ type CreatePlaylistParams = {
  */
 export const createPlaylist = async ({
   name,
-  user_id = SPOTIFY_USER_ID!
+  // user_id = SPOTIFY_USER_ID!
 }: CreatePlaylistParams): Promise<Playlist<TrackItem>> => {
-  const playlist = await api.playlists.createPlaylist(user_id!, {
-    name,
-    public: true
-    // collaborative
-    // description
-  })
+  const playlist = await fetch('https://api.spotify.com/v1/me/playlists', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    },
+    body: JSON.stringify({
+      name,
+      public: true
+      // description
+    })
+  }).then((response) => response.json())
+  // OR
+  // const playlist = await api.playlists.createPlaylist(user_id!, {
+  //   name,
+  //   public: true
+  //   // collaborative
+  //   // description
+  // })
   return playlist
 }
 
@@ -90,7 +122,7 @@ type AddItemsToPlaylistParams = {
 }
 
 /**
- * @link https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist
+ * @link https://developer.spotify.com/documentation/web-api/reference/add-items-to-playlist
  */
 export const addItemsToPlaylist = async ({
   uris,
@@ -105,7 +137,18 @@ export const addItemsToPlaylist = async ({
     const Playlist = playlistFilepath ? _getPlaylistFromFile(playlistFilepath) : playlist
     Uris = _getUrisFromPlaylist(Playlist!)
   }
-  await api.playlists.addItemsToPlaylist(playlist_id!, Uris)
+  await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/items`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    },
+    body: JSON.stringify({
+      uris: Uris
+      // position: 0
+    })
+  })
+  // OR
+  // await api.playlists.addItemsToPlaylist(playlist_id!, Uris)
 }
 
 export const getUrisFromFiles = (playlistFilepath: string) => {

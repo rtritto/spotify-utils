@@ -14,14 +14,21 @@ const {
 } = process.env
 
 // let api: SpotifyApi
+/** @link https://developer.spotify.com/documentation/web-api/concepts/access-token */
 let access_token: string
+const BEARER_ACCESS_TOKEN_LIFETIME_MILLISECONDS = 3600 * 1000
+
+const _isTokenValid = (): boolean => {
+  const { mtimeMs } = fs.statSync(BEARER_TOKEN_FILEPATH)
+  const diffMs = Date.now() - mtimeMs
+  return diffMs <= BEARER_ACCESS_TOKEN_LIFETIME_MILLISECONDS
+}
 
 const _set = async () => {
   if (access_token) {
     return
   }
-  const isFileCreated = createFile(BEARER_TOKEN_FILEPATH)
-  if (isFileCreated) {
+  if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
     const basicAuth = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
 
     ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {

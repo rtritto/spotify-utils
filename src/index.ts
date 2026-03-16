@@ -3,7 +3,7 @@ import path from 'node:path'
 // import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { createFile, createFolder, fileOptions, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
+import { createFile, createFolder, FILE_OPTIONS, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
 
 const {
   SPOTIFY_CLIENT_ID,
@@ -35,9 +35,9 @@ const _set = async () => {
       })
     }).then(res => res.json()))
 
-    fs.writeFileSync(BEARER_TOKEN_FILEPATH, access_token, fileOptions)
+    fs.writeFileSync(BEARER_TOKEN_FILEPATH, access_token, FILE_OPTIONS)
   } else {
-    access_token = fs.readFileSync(BEARER_TOKEN_FILEPATH, fileOptions)
+    access_token = fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS)
   }
   // OR
   // if (api) {

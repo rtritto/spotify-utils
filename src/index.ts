@@ -73,7 +73,13 @@ export const getPlaylist = async ({
     headers: {
       Authorization: `Bearer ${access_token}`
     }
-  }).then((response) => response.json())
+  }).then(async (response) => {
+    if (!response.ok) {
+      const text = await response.text()
+      throw new Error(`Failed to fetch playlist: ${response.statusText} - ${text}`)
+    }
+    return response.json()
+  })
   // OR
   // const playlist = await api.playlists.getPlaylist(playlist_id)
   if (save) {

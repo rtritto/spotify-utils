@@ -3,19 +3,43 @@ import path from 'node:path'
 // import { SpotifyApi } from '@spotify/web-api-ts-sdk'
 import type { Playlist, Track, TrackItem } from '@spotify/web-api-ts-sdk'
 
-import { createFolder, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
+import { createFile, createFolder, fileOptions, getCurrentDateString, getInputPath, getOutputPath } from './folderUtils'
 
 const {
   SPOTIFY_CLIENT_ID,
   SPOTIFY_CLIENT_SECRET,
   SPOTIFY_PLAYLIST_ID,
   // SPOTIFY_USER_ID
+  BEARER_TOKEN_FILEPATH = '.bearer_token'
 } = process.env
 
 // let api: SpotifyApi
 let access_token: string
 
 const _set = async () => {
+  if (access_token) {
+    return
+  }
+  const isFileCreated = createFile(BEARER_TOKEN_FILEPATH)
+  if (isFileCreated) {
+    const basicAuth = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
+
+    ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Basic ${basicAuth}`
+      },
+      body: new URLSearchParams({
+        grant_type: 'client_credentials'
+      })
+    }).then(res => res.json()))
+
+    fs.writeFileSync(BEARER_TOKEN_FILEPATH, access_token, fileOptions)
+  } else {
+    access_token = fs.readFileSync(BEARER_TOKEN_FILEPATH, fileOptions)
+  }
+  // OR
   // if (api) {
   //   return
   // }
@@ -23,19 +47,6 @@ const _set = async () => {
   //   SPOTIFY_CLIENT_ID!,
   //   SPOTIFY_CLIENT_SECRET!
   // )
-
-  const basicAuth = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
-
-  ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': `Basic ${basicAuth}`
-    },
-    body: new URLSearchParams({
-      grant_type: 'client_credentials'
-    })
-  }).then(res => res.json()))
 }
 
 type GetPlaylistParams = {

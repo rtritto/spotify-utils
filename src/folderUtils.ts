@@ -4,6 +4,8 @@ import AdmZip from 'adm-zip'
 
 const { INPUT_FOLDER = './input', OUTPUT_FOLDER = './output' } = process.env
 
+export const fileOptions = { encoding: 'utf8' } as const
+
 // Get current date as YYYYMMDD string
 export const getCurrentDateString = (complete = false): string => {
   const currentDate = new Date()
@@ -24,6 +26,14 @@ export const createFolder = (folderPath: string): void => {
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true })
   }
+}
+
+export const createFile = (filePath: string): boolean => {
+  if (fs.existsSync(filePath)) {
+    return false
+  }
+  fs.writeFileSync(filePath, '', fileOptions)
+  return true
 }
 
 export const getInputPath = (file: string): string => {

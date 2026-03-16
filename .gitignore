@@ -9,5 +9,7 @@
 
 .env
 
+.bearer_token
+
 output/
 input/

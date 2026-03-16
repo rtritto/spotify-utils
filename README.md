@@ -92,17 +92,22 @@ await getPlaylist({ playlist_id: <PLAYLIST_ID> })
   - click `Try it` button
 
 # Environment variables
-File `.env`:
-```
-SPOTIFY_CLIENT_ID
-SPOTIFY_CLIENT_SECRET
-SPOTIFY_PLAYLIST_ID
-SPOTIFY_USER_ID
-```
+File `.env`
+
+| Name | Default
+| - | -
+`SPOTIFY_CLIENT_ID`
+`SPOTIFY_CLIENT_SECRET`
+`SPOTIFY_PLAYLIST_ID`
+`SPOTIFY_USER_ID`
+`INPUT_FOLDER` | `./input`
+`OUTPUT_FOLDER` | `./output`
+`BEARER_TOKEN_FILEPATH` | `.bearer_token`
+
+
+# BREAKING CHANGES
+- [February 2026 Migration Guide](https://developer.spotify.com/documentation/web-api/tutorials/february-2026-migration-guide)
 
 # TODO
-Functions that need Access Token:
-- createPlaylist
-- addItemsToPlaylist
 Guide:
 - [Implementing the Authorization Code Flow](https://www.newline.co/courses/build-a-spotify-connected-app/implementing-the-authorization-code-flow)

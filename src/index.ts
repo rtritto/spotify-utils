@@ -10,18 +10,25 @@ const {
   SPOTIFY_CLIENT_SECRET,
   SPOTIFY_PLAYLIST_ID,
   // SPOTIFY_USER_ID
-  BEARER_TOKEN_FILEPATH = '.bearer_token'
+  BEARER_TOKEN_FILEPATH = '.token.json'
 } = process.env
 
 // let api: SpotifyApi
 /** @link https://developer.spotify.com/documentation/web-api/concepts/access-token */
 let access_token: string
-const BEARER_ACCESS_TOKEN_LIFETIME_MILLISECONDS = 3600 * 1000
 
+/**
+ * expires_in: The time period (in seconds) for which the access token is valid.
+ *   Access tokens are valid for a maximum of one hour.
+ *   The response also returns a timestamp of when the token expires,
+ *   which you can use to calculate when to refresh the token.
+ * @returns boolean
+ */
 const _isTokenValid = (): boolean => {
   const { mtimeMs } = fs.statSync(BEARER_TOKEN_FILEPATH)
   const diffMs = Date.now() - mtimeMs
-  return diffMs <= BEARER_ACCESS_TOKEN_LIFETIME_MILLISECONDS
+  const { expires_in } = JSON.parse(fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS))
+  return diffMs <= (expires_in * 1000)
 }
 
 const _set = async () => {
@@ -30,7 +37,7 @@ const _set = async () => {
   }
   if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
     /** @link https://developer.spotify.com/documentation/web-api/tutorials/getting-started */
-    ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
+    const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -40,11 +47,15 @@ const _set = async () => {
         client_id: SPOTIFY_CLIENT_ID!,
         client_secret: SPOTIFY_CLIENT_SECRET!
       })
-    }).then(res => res.json()))
-
-    fs.writeFileSync(BEARER_TOKEN_FILEPATH, access_token, FILE_OPTIONS)
+    }).then(res => res.json()) as {
+      access_token: string
+      token_type: string
+      expires_in: number
+    }
+    ({ access_token } = tokenResponse)
+    fs.writeFileSync(BEARER_TOKEN_FILEPATH, JSON.stringify(tokenResponse), FILE_OPTIONS)
   } else {
-    access_token = fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS)
+    ({ access_token } = JSON.parse(fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS)))
   }
   // OR
   // if (api) {

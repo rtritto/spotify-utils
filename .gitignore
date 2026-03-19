@@ -9,7 +9,7 @@
 
 .env
 
-.bearer_token
+.token.json
 
 output/
 input/

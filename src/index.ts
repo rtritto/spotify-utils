@@ -29,16 +29,15 @@ const _set = async () => {
     return
   }
   if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
-    const basicAuth = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
-
     ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Basic ${basicAuth}`
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: new URLSearchParams({
-        grant_type: 'client_credentials'
+        grant_type: 'client_credentials',
+        client_id: SPOTIFY_CLIENT_ID!,
+        client_secret: SPOTIFY_CLIENT_SECRET!
       })
     }).then(res => res.json()))
 

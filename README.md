@@ -7,6 +7,8 @@
 `yarn`
 
 ## Create Spotify's Developer App
+> Same guide on [Getting started with Web API](https://developer.spotify.com/documentation/web-api/tutorials/getting-started)
+
 - Go to https://developer.spotify.com/dashboard
 - Create a new App as follow:
 

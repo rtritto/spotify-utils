@@ -29,6 +29,7 @@ const _set = async () => {
     return
   }
   if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
+    /** @link https://developer.spotify.com/documentation/web-api/tutorials/getting-started */
     ({ access_token } = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {

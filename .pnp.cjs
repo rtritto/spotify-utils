@@ -29,8 +29,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
-          ["@types/adm-zip", "npm:0.5.7"],\
-          ["@types/node", "npm:25.0.3"],\
+          ["@types/adm-zip", "npm:0.5.8"],\
+          ["@types/node", "npm:25.5.0"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\
@@ -411,10 +411,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/adm-zip", [\
-      ["npm:0.5.7", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-adm-zip-npm-0.5.7-b19d96a568-10c0.zip/node_modules/@types/adm-zip/",\
+      ["npm:0.5.8", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-adm-zip-npm-0.5.8-1b88fecc8d-10c0.zip/node_modules/@types/adm-zip/",\
         "packageDependencies": [\
-          ["@types/adm-zip", "npm:0.5.7"],\
+          ["@types/adm-zip", "npm:0.5.8"],\
           ["@types/node", "npm:24.9.2"]\
         ],\
         "linkType": "HARD"\
@@ -470,11 +470,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:25.0.3", {\
-        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-25.0.3-b5e8cb0cae-10c0.zip/node_modules/@types/node/",\
+      ["npm:25.5.0", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/@types-node-npm-25.5.0-49c7b83d02-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:25.0.3"],\
-          ["undici-types", "npm:7.16.0"]\
+          ["@types/node", "npm:25.5.0"],\
+          ["undici-types", "npm:7.18.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1983,8 +1983,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@spotify/web-api-ts-sdk", "npm:1.2.0"],\
-          ["@types/adm-zip", "npm:0.5.7"],\
-          ["@types/node", "npm:25.0.3"],\
+          ["@types/adm-zip", "npm:0.5.8"],\
+          ["@types/node", "npm:25.5.0"],\
           ["@yarnpkg/sdks", "npm:3.2.3"],\
           ["adm-zip", "npm:0.5.16"],\
           ["spotify-utils", "workspace:."],\
@@ -2173,6 +2173,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/undici-types-npm-7.16.0-0e23b08124-10c0.zip/node_modules/undici-types/",\
         "packageDependencies": [\
           ["undici-types", "npm:7.16.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:7.18.2", {\
+        "packageLocation": "../../../Users/Computer/AppData/Local/Yarn/Berry/cache/undici-types-npm-7.18.2-3e6d69d829-10c0.zip/node_modules/undici-types/",\
+        "packageDependencies": [\
+          ["undici-types", "npm:7.18.2"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.6.0",
     "@yarnpkg/sdks": "^3.2.3",
-    "adm-zip": "^0.5.16",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "adm-zip": "^0.5.17",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "adm-zip": "*"

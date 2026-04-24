@@ -102,7 +102,7 @@ export const getPlaylist = async ({
   // const playlist = await api.playlists.getPlaylist(playlist_id)
   if (save) {
     // Backup the playlist
-    const currentDateComplete = getCurrentDateString(true)
+    const currentDateComplete = getCurrentDateString(/* true */)
     const YYYYMMDD_FolderPath = getOutputPath(currentDateComplete.slice(0, 8))
     createFolder(YYYYMMDD_FolderPath)
     // const playlistFilename = `playlist-${playlist_id}-${ts}.json`
@@ -191,6 +191,58 @@ export const addItemsToPlaylist = async ({
   })
   // OR
   // await api.playlists.addItemsToPlaylist(playlist_id!, Uris)
+}
+
+type ArtistItem = {
+  id: string
+  name: string
+}
+
+type GetFollowingResponse = {
+  artists: {
+    href: string
+    items: ArtistItem[]
+    limit: number
+    next: string | null
+    offset: number
+    previous: string | null
+    total: number
+  }
+}
+
+/**
+ * @link https://developer.spotify.com/documentation/web-api/reference/get-followed
+ */
+export const getFollowing = async ({ save = true }: { save?: boolean } = {}) => {
+  await _set()
+  let allFollowing = []
+  const firstFollowing = await fetch('https://api.spotify.com/v1/me/following?type=artist&limit=50', {
+    headers: {
+      Authorization: `Bearer ${access_token}`
+    }
+  }).then((response) => response.json() as Promise<GetFollowingResponse>)
+  allFollowing.push(...firstFollowing.artists.items)
+
+  let next = firstFollowing.artists.next
+  while (next) {
+    const currentFollowing = await fetch(next, {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    }).then((response) => response.json() as Promise<GetFollowingResponse>)
+    allFollowing.push(...currentFollowing.artists.items)
+    next = currentFollowing.artists.next
+  }
+  if (save) {
+    // Backup the following list
+    const currentDateComplete = getCurrentDateString(/* true */)
+    const YYYYMMDD_FolderPath = getOutputPath(currentDateComplete.slice(0, 8))
+    createFolder(YYYYMMDD_FolderPath)
+    const playlistFilename = `${currentDateComplete}-Following.json`
+    const filepath = path.join(YYYYMMDD_FolderPath, playlistFilename)
+    fs.writeFileSync(filepath, JSON.stringify(allFollowing))
+  }
+  return allFollowing
 }
 
 export const getUrisFromFiles = (playlistFilepath: string) => {

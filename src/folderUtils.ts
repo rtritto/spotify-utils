@@ -6,20 +6,27 @@ const { INPUT_FOLDER = './input', OUTPUT_FOLDER = './output' } = process.env
 
 export const FILE_OPTIONS = { encoding: 'utf8' } as const
 
+const currentDate = new Date()
+
+let currentDateString = {} as Record<'complete' | 'incomplete', string>
+
 // Get current date as YYYYMMDD string
 export const getCurrentDateString = (complete = false): string => {
-  const currentDate = new Date()
-  return [
-    currentDate.getFullYear(),  // YYYY
-    (currentDate.getMonth() + 1).toString().padStart(2, '0'),  // MM
-    currentDate.getDate().toString().padStart(2, '0'),  // DD
-    ...(complete ? [
-      'T',
-      currentDate.getHours().toString().padStart(2, '0'),  // hh
-      currentDate.getMinutes().toString().padStart(2, '0'),  // mm
-      currentDate.getSeconds().toString().padStart(2, '0')   // ss
-    ] : [])
-  ].join('')
+  const key = complete ? 'complete' : 'incomplete'
+  if (!currentDateString[key]) {
+    currentDateString[key] = [
+      currentDate.getFullYear(),  // YYYY
+      (currentDate.getMonth() + 1).toString().padStart(2, '0'),  // MM
+      currentDate.getDate().toString().padStart(2, '0'),  // DD
+      ...(complete ? [
+        'T',
+        currentDate.getHours().toString().padStart(2, '0'),  // hh
+        currentDate.getMinutes().toString().padStart(2, '0'),  // mm
+        currentDate.getSeconds().toString().padStart(2, '0')   // ss
+      ] : [])
+    ].join('')
+  }
+  return currentDateString[key]
 }
 
 export const createFolder = (folderPath: string): void => {

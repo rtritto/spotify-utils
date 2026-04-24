@@ -1,6 +1,7 @@
-import { spawn } from 'node:child_process'
+// import { spawn } from 'node:child_process'
 
 import {
+  // getFollowing,
   getPlaylist,
   // createPlaylist,
   // addItemsToPlaylist,
@@ -18,6 +19,11 @@ const getPlaylists = async (ids: string[]) => {
 await getPlaylists([
   'XXXXXXXXXXXXXXXXXXXXXX'  // All
 ])
+
+//#region createPlaylist
+// const following = await getFollowing()
+// console.log('Following:', following)
+//#endregion
 
 compressFolderToZip(getOutputPath(getCurrentDateString()))
 

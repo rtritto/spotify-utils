@@ -124,6 +124,7 @@ File `.env`
 2. Open Spotify Web https://developer.spotify.com/documentation/web-api/reference/get-playlist
 3. Find `https://accounts.spotify.com/api/token`
 4. Copy `access_token` value from Response
+5. Use the access token as `BEARER_TOKEN` environment variable
 
 # TODO
 Guide:

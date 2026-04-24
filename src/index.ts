@@ -56,7 +56,11 @@ const _set = async () => {
       expires_in: number
     }
     ({ access_token } = tokenResponse)
-    fs.writeFileSync(BEARER_TOKEN_FILEPATH, JSON.stringify(tokenResponse), FILE_OPTIONS)
+    if (access_token) {
+      fs.writeFileSync(BEARER_TOKEN_FILEPATH, JSON.stringify(tokenResponse), FILE_OPTIONS)
+    } else {
+      throw new Error('Failed to get access token')
+    }
   } else {
     ({ access_token } = JSON.parse(fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS)))
   }

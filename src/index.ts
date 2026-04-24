@@ -10,6 +10,7 @@ const {
   SPOTIFY_CLIENT_SECRET,
   SPOTIFY_PLAYLIST_ID,
   // SPOTIFY_USER_ID
+  BEARER_TOKEN,
   BEARER_TOKEN_FILEPATH = '.token.json'
 } = process.env
 
@@ -35,7 +36,9 @@ const _set = async () => {
   if (access_token) {
     return
   }
-  if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
+  if (BEARER_TOKEN) {
+    access_token = BEARER_TOKEN
+  } else if (createFile(BEARER_TOKEN_FILEPATH) || !_isTokenValid()) {
     /** @link https://developer.spotify.com/documentation/web-api/tutorials/getting-started */
     const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',

@@ -104,6 +104,7 @@ File `.env`
 `SPOTIFY_USER_ID`
 `INPUT_FOLDER` | `./input`
 `OUTPUT_FOLDER` | `./output`
+`BEARER_TOKEN`
 `BEARER_TOKEN_FILEPATH` | `.bearer_token`
 
 # Alternative

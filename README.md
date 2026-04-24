@@ -106,6 +106,15 @@ File `.env`
 `OUTPUT_FOLDER` | `./output`
 `BEARER_TOKEN_FILEPATH` | `.bearer_token`
 
+# Alternative
+## Firefox Desktop
+1. Go to `about:config`
+2. Set `devtools.netmonitor.responseBodyLimit` = 0
+3. Open Spotify Web https://developer.spotify.com/documentation/web-api/reference/get-playlist
+4. F12 → Network OR Ctrl+Shift+E
+5. Click `Try it` button
+6. Find `https://api.spotify.com/v1/playlists/<PLAYLIST_ID>`
+7. Left click → Copy Value → Copy Response
 
 # BREAKING CHANGES
 - [February 2026 Migration Guide](https://developer.spotify.com/documentation/web-api/tutorials/february-2026-migration-guide)

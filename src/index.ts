@@ -63,6 +63,24 @@ const _set = async () => {
     }
   } else {
     ({ access_token } = JSON.parse(fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS)))
+    // const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded',
+    //     'Authorization': 'Basic ' + Buffer.from(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET).toString('base64')
+    //   },
+    //   body: new URLSearchParams({
+    //     client_id: SPOTIFY_CLIENT_ID!,
+    //     client_secret: SPOTIFY_CLIENT_SECRET!,
+    //     grant_type: 'refresh_token',
+    //     refresh_token  // get from .token.json
+    //   })
+    // }).then(res => res.json()) as {
+    //   access_token: string
+    //   token_type: string
+    //   expires_in: number,
+    //   scope: string
+    // }
   }
   // OR
   // if (api) {

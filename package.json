@@ -10,22 +10,14 @@
     "od": "yarn outdated"
   },
   "dependencies": {
-    "@spotify/web-api-ts-sdk": "^1.2.0"
+    "@spotify/web-api-ts-sdk": "^1.2.0",
+    "adm-zip": "^0.5.17"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",
     "@types/node": "^25.6.0",
     "@yarnpkg/sdks": "^3.2.3",
-    "adm-zip": "^0.5.17",
     "typescript": "^6.0.3"
-  },
-  "peerDependencies": {
-    "adm-zip": "*"
-  },
-  "peerDependenciesMeta": {
-    "adm-zip": {
-      "optional": true
-    }
   },
   "engines": {
     "node": ">=20.6.0"

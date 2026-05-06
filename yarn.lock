@@ -848,11 +848,6 @@ __metadata:
     "@yarnpkg/sdks": "npm:^3.2.3"
     adm-zip: "npm:^0.5.17"
     typescript: "npm:^6.0.3"
-  peerDependencies:
-    adm-zip: "*"
-  peerDependenciesMeta:
-    adm-zip:
-      optional: true
   languageName: unknown
   linkType: soft
 

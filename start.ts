@@ -6,8 +6,8 @@ import {
   // createPlaylist,
   // addItemsToPlaylist,
   // getUrisFromFiles
-} from './src/index'
-import { compressFolderToZip, getCurrentDateString, getOutputPath } from './src/folderUtils'
+} from './src/index.ts'
+import { compressFolderToZip, getCurrentDateString, getOutputPath } from './src/folderUtils.ts'
 
 const getPlaylists = async (ids: string[]) => {
   for (const id of ids) {

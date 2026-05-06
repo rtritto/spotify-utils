@@ -46,11 +46,10 @@ const getCode = async (): Promise<string> => {
 
     // Start the local server on port 8888
     server.listen(8888, '127.0.0.1', () => {
-      console.log('Server listening. Opening browser for login …')
+      console.log('Server listening.\nOpening browser for login with URL:', loginUrl)
 
       // Cross-platform command to open the default browser
       const start = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start ""' : 'xdg-open'
-      console.log('In the browser open the URL:', loginUrl)
       exec(`${start} "${loginUrl}"`)
     })
   })

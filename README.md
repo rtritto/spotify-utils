@@ -107,24 +107,28 @@ File `.env`
 `BEARER_TOKEN`
 `BEARER_TOKEN_FILEPATH` | `.bearer_token`
 
-# Alternative
-## Firefox Desktop
-1. Go to `about:config`
-2. Set `devtools.netmonitor.responseBodyLimit` = 0
-3. F12 → Network OR Ctrl+Shift+E
-4. Open Spotify Web https://developer.spotify.com/documentation/web-api/reference/get-playlist
-5. Click `Try it` button
-6. Find `https://api.spotify.com/v1/playlists/<PLAYLIST_ID>`
-7. Left click → Copy Value → Copy Response
-
 # BREAKING CHANGES
 - [February 2026 Migration Guide](https://developer.spotify.com/documentation/web-api/tutorials/february-2026-migration-guide)
-## Workaround
+## Workarounds
+### Get Bearer Token from Spotify Developer website
 1. F12 → Network OR Ctrl+Shift+E
-2. Open Spotify Web https://developer.spotify.com/documentation/web-api/reference/get-playlist
+2. Open Spotify Web `https://developer.spotify.com`
 3. Find `https://accounts.spotify.com/api/token`
 4. Copy `access_token` value from Response
 5. Use the access token as `BEARER_TOKEN` environment variable
+
+### Get Playlist from the Developer Website using get-playlist API
+1. If Firefox Desktop, go to `about:config` and set `devtools.netmonitor.responseBodyLimit` = 0
+2. F12 → Network OR Ctrl+Shift+E
+3. Open Spotify Web `https://developer.spotify.com/documentation/web-api/reference/get-playlist`
+4. Click `Try it` button
+5. Find `https://api.spotify.com/v1/playlists/<PLAYLIST_ID>`
+6. Left click → Copy Value → Copy Response
+
+> !Draft
+### Get Code/Bearer Token from Developer Website
+1. Go to `https://developer.spotify.com/dashboard/<SPOTIFY_CLIENT_ID>`
+2. To "Redirect URIs" add `http://127.0.0.1:8888/callback` (see https://developer.spotify.com/documentation/web-api/concepts/redirect_uri)
 
 # TODO
 Guide:

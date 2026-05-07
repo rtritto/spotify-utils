@@ -29,7 +29,8 @@ const _isTokenValid = (): boolean => {
   const { mtimeMs } = fs.statSync(BEARER_TOKEN_FILEPATH)
   const diffMs = Date.now() - mtimeMs
   const { expires_in } = JSON.parse(fs.readFileSync(BEARER_TOKEN_FILEPATH, FILE_OPTIONS))
-  return diffMs <= (expires_in * 1000)
+  // Subtract 60 seconds from expires_in to account for any potential delays
+  return diffMs <= ((expires_in - 60) * 1000)
 }
 
 const _set = async () => {

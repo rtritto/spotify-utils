@@ -114,7 +114,7 @@ export const getPlaylist = async ({
   }).then(async (response) => {
     if (!response.ok) {
       const text = await response.text()
-      throw new Error(`Failed to fetch playlist: ${response.statusText} - ${text}`)
+      throw new Error(`Failed to fetch playlist: ${response.status} - ${text}`)
     }
     return response.json()
   })

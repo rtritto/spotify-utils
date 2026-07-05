@@ -10,13 +10,13 @@
     "od": "yarn outdated"
   },
   "dependencies": {
-    "adm-zip": "^0.5.17"
+    "adm-zip": "^0.5.18"
   },
   "devDependencies": {
     "@spotify/web-api-ts-sdk": "^1.2.0",
     "@types/adm-zip": "^0.5.8",
-    "@types/node": "^25.6.0",
-    "@yarnpkg/sdks": "^3.2.3",
+    "@types/node": "^26.1.0",
+    "@yarnpkg/sdks": "^3.3.0",
     "typescript": "^6.0.3"
   },
   "engines": {

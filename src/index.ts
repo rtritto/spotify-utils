@@ -173,7 +173,7 @@ const _getPlaylistFromFile = (playlistFilepath: string): Playlist<Track> => {
 }
 
 const _getUrisFromPlaylist = (playlist: Playlist<Track>) => {
-  return playlist.tracks.items.map((item) => item.track.uri)
+  return playlist.tracks.items.map((item) => `spotify:track:${item.track.uri}`)
 }
 
 type AddItemsToPlaylistParams = {

@@ -241,6 +241,16 @@ export const getFollowing = async ({ save = true }: { save?: boolean } = {}) => 
       Authorization: `Bearer ${access_token}`
     }
   }).then((response) => response.json() as Promise<GetFollowingResponse>)
+
+  if (!firstFollowing.artists) {
+    throw new Error('Failed to fetch following artists: No artists found in response')
+  }
+
+  if (firstFollowing.artists.items.length === 0) {
+    console.warn('No following artists found for the user.')
+    return []
+  }
+
   allFollowing.push(...firstFollowing.artists.items)
 
   let next = firstFollowing.artists.next

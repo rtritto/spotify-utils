@@ -199,7 +199,7 @@ export const addItemsToPlaylist = async ({
     const Playlist = playlistFilepath ? _getPlaylistFromFile(playlistFilepath) : playlist
     Uris = _getUrisFromPlaylist(Playlist!)
   }
-  await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/items`, {
+  const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/items`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${access_token}`
@@ -209,6 +209,8 @@ export const addItemsToPlaylist = async ({
       // position: 0
     })
   })
+  if (!response.ok)
+    throw Error(`Failed to add items to playlist ${playlist_id}: ${response.status} - ${await response.text()}`)
   // OR
   // await api.playlists.addItemsToPlaylist(playlist_id!, Uris)
 }

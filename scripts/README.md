@@ -32,26 +32,27 @@ Install one of the following browser extensions:
 
 - **Tampermonkey** (Chrome, Edge, Brave, Firefox)
 
-2. Install the script with auto-updates
+## 2. Install the script with auto-updates
 
 > Because the script uses a `.js` extension (instead of `.user.js`), install it from URL or paste it manually into a new script.
 
-Direct raw script URL:
-[spotify-web-free-import-export.js](https://raw.githubusercontent.com/rtritto/spotify-utils/main/scripts/spotify-web-free-import-export.js)
+Script URL:
+[spotify-web-free-import-export.js](https://raw.githubusercontent.com/rtritto/spotify-utils/refs/heads/master/scripts/spotify-web-free-import-export.js)
 
 - **Violentmonkey**:
-1. Open the Violentmonkey **Dashboard**.
-1. Click `+` → **Install from URL.**
-1. Paste the raw URL above and confirm installation.
+  1. Open the Violentmonkey **Dashboard**.
+  1. Click `+` → **Install from URL.**
+  1. Paste the raw URL above and confirm installation.
 - **Tampermonkey**:
-1. Open the Tampermonkey **Dashboard** → **Utilities** tab.
-1. Under **Import from URL**, paste the raw URL above and click **Install**.
+  1. Open the Tampermonkey **Dashboard** → **Utilities** tab.
+  1. Under **Import from URL**, paste the raw URL above and click **Install**.
 
 (__Alternatively, create a new script in your extension's dashboard and paste the contents of `scripts/spotify-web-free-import-export.js` — the `@updateURL` and `@downloadURL` headers will still handle future updates.__)
 
 ---
 
 # Browser Setup (if the bar or token doesn't appear)
+
 ## Violentmonkey
 - The script uses `@inject-into` content to bypass `open.spotify.com`'s strict CSP.
 - In the script's **Settings** tab in Violentmonkey, make sure Injection mode is set to `Default` or `content` (not forced to `page`).
@@ -65,8 +66,8 @@ Direct raw script URL:
 # Usage
 1. Open `https://open.spotify.com` and log in.
 1. The toolbar will appear in the top-left corner with a status dot:
-  - 🟢 **Green**: `Bearer` and `Client-Token` captured, ready to use.
-  - 🟡 **Yellow/Lime**: waiting to complete capture (navigate to __Home__ or __Your Library__, or click the dot itself to open diagnostics and click `🔄 Retry scan`).
+    - 🟢 **Green**: `Bearer` and `Client-Token` captured, ready to use.
+    - 🟡 **Yellow/Lime**: waiting to complete capture (navigate to __Home__ or __Your Library__, or click the dot itself to open diagnostics and click `🔄 Retry scan`).
 1. Click `⬇ Export`, check the items you want to back up, and click `💾 Download selected`.
 1. To import into another account (or restore a backup), click `⬆ Import`, select or drag & drop your `.json` files, remove any unwanted entries with `✕`, and click `▶ Import`.
 
